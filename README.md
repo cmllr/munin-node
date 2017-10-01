@@ -25,5 +25,5 @@ The filename should be equals the class name. Also, each class should offer the 
 
 ## License 
 
-This program is licensed under the terms and conditions of the GNU General Public License.
+This program is licensed under the terms and conditions of the GNU General Public License v3.
 
