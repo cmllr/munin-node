@@ -6,7 +6,8 @@ This software is an alternative implementation of [https://github.com/munin-moni
 
 ## Deployment
 
-Install Python3 (not 2!), run `py munin-node.py`. Thats all. The program will listen on the default port 4949. I'm trying to avoid third party requirements to keep the node atomic.
+
+Install Python3 (not 2!) and the library (`psutil`, e. g. via `pip` or `easy_install`), run `py munin-node.py`. Thats all. The program will listen on the default port 4949. I'm trying to avoid third party requirements to keep the node atomic.
 
 ### Why the **** did you use Python?
 
