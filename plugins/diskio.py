@@ -13,9 +13,9 @@ class diskio:
 
         for drive in drives:
             infos = drives[drive]
-            result += drive +"read_bytes.label Read bytes ("+drive+")" + LINEBREAK
+            result += drive +"read_bytes.label Read bytes "+drive + LINEBREAK
             result += drive +"read_bytes.type GAUGE"  + LINEBREAK
-            result += drive +"write_bytes.label Write bytes ("+drive+")" + LINEBREAK
+            result += drive +"write_bytes.label Write bytes "+drive + LINEBREAK
             result += drive +"write_bytes.type GAUGE"  + LINEBREAK
         return result.strip()
 
@@ -27,6 +27,6 @@ class diskio:
 
         for drive in result:
             infos = result[drive]
-            output +=drive + ".read_bytes.value "+ str(infos.read_bytes) + LINEBREAK
-            output +=drive + ".write_bytes.value "+ str(infos.write_bytes) + LINEBREAK
+            output +=drive + "read_bytes.value "+ str(infos.read_bytes) + LINEBREAK
+            output +=drive + "write_bytes.value "+ str(infos.write_bytes) + LINEBREAK
         return output.strip()
