@@ -6,7 +6,7 @@ This software is an alternative implementation of [https://github.com/munin-moni
 
 ## Installation
 
-Install Python3 (not 2!) and the library (`psutil`, e. g. via `pip` or `easy_install`), run `py munin-node.py`. 
+Install Python3 (not 2!) install the requirements listed in `requirements.txt`, then run `py munin-node.py`. 
 
 ### Why the **** did you use Python?
 
@@ -16,6 +16,22 @@ Using Python I could archieve the simpliest approach on the task. Other language
 
 - The command `list $nodename` and `list` are identical.
 - Putty and the Windows `telnet` command do not work properly when connnecting to the listened port
+- Not all configuration values are supported
+
+## Configuration
+
+In general, the plugin supports the settings listed on [http://guide.munin-monitoring.org/en/latest/reference/munin-node.conf.html](http://guide.munin-monitoring.org/en/latest/reference/munin-node.conf.html).
+
+There are some platfrom specific exceptions which are *not supported*:
+
+- user
+- group 
+- ignore_file
+- global_timeout
+- background
+- sid
+- The Perl based Net::Server configurations
+- pid_file
 
 ## Contributing
 
