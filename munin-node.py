@@ -54,17 +54,20 @@ def callMethod(o, name):
     return getattr(o, name)()
 
 def runPlugin(name):
-  module = __import__(name.replace("\r",""))
-  class_ = getattr(module, name.replace("\r",""))
-  instance = class_()
-  return callMethod(instance, "fetch")  + LINEBREAK + "." + LINEBREAK
+  return callPluginMethod(name,"fetch")
 
 def configPlugin(name):
-  module = __import__(name.replace("\r",""))
-  class_ = getattr(module, name.replace("\r",""))
-  instance = class_()
-  return callMethod(instance, "config")  + LINEBREAK + "." + LINEBREAK
+  return callPluginMethod(name,"config")
 
+def callPluginMethod(name, method):  
+  if (name.find(".") == -1 and os.path.isfile(PLUGINPATH + "\\" + name + ".py")): 
+    module = __import__(name.replace("\r",""))
+    class_ = getattr(module, name.replace("\r",""))
+    instance = class_()
+    return callMethod(instance, method)  + LINEBREAK + "." + LINEBREAK
+  else:
+    return "# Unknown service" + LINEBREAK + "." + LINEBREAK
+  
 def clientthread(conn):
     sys.path.append(PLUGINPATH)
     conn.send(output(hello()))  
