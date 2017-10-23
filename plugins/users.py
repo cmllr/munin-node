@@ -1,5 +1,5 @@
-import subprocess
-import re
+import psutil
+
 LINEBREAK = "\n"
 class users:
     def config(self):
@@ -11,11 +11,4 @@ class users:
         return result
 
     def fetch(self):
-        try:
-            output = subprocess.check_output([r'C:\Windows\Sysnative\query.exe',"user"], shell=True, stderr=subprocess.STDOUT).decode("utf-8")
-        except Exception as e:
-            output = str(e.output)
-
-        lines = output.split(r"\r\n")
-
-        return "total.value " + str(len(lines) -2 ) # 1 header and 1 last line
+        return "total.value " + str(len(psutil.users()))
