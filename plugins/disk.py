@@ -4,7 +4,7 @@ LINEBREAK = "\n"
 class disk:
     def config(self):
         result = "graph_title Disks" + LINEBREAK
-        result += "graph_vlabel Disk statistics" + LINEBREAK
+        result += "graph_vlabel Disk usage in percent" + LINEBREAK
         result += "graph_category disk" + LINEBREAK
         try:
             output = subprocess.check_output(["wmic", "logicaldisk", "get", "size,","freespace,","caption"], shell=True, stderr=subprocess.STDOUT).decode("utf-8")
