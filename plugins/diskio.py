@@ -50,6 +50,10 @@ class diskio:
             if drive in lastStats:
                 read -= lastStats[drive][0]         
                 write -= lastStats[drive][1]   
+            else:
+                # the first run does not have any data (otherwise the graphs raise to high)
+                read = 0
+                write = 0
 
             output +=drive + "read_bytes.value "+ str(read) + LINEBREAK
             output +=drive + "write_bytes.value "+ str(write) + LINEBREAK
